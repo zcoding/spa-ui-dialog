@@ -28,7 +28,8 @@ module.exports = function(grunt) {
         files: {
           'build/<%= pkg.name %>.css': 'src/less/spa-ui-dialog.less'
         }
-      }
+      },
+      "skin": {}
     },
 
     concat: {
@@ -50,10 +51,11 @@ module.exports = function(grunt) {
         files: ['src/*.js'],
         tasks: ['concat:build', 'uglify:build']
       },
-      "skin": {
+      "style": {
         files: ['src/**/*.less'],
         tasks: ['less:build']
-      }
+      },
+      "skin": {}
     },
 
     compress: {
@@ -76,8 +78,26 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-less');
 
   grunt.registerTask('default', ['concat:build', 'uglify:build', 'watch:build']);
-  grunt.registerTask('skin', ['less:build', 'watch:skin']);
+  grunt.registerTask('style', ['less:build', 'watch:style']);
   grunt.registerTask('build', ['concat:build', 'uglify:build', 'less:build']);
   grunt.registerTask('release', ['concat:build', 'uglify:build', 'less:build', 'compress:release']);
+
+  grunt.registerTask('skin', 'build your own skin style', function(names) {
+    if (arguments.length === 0) {
+      grunt.log.error('You must pass the skin name');
+      return false;
+    }
+    var lessFilePath = 'src/less/skin-' + names + '.less';
+    var targetPath = 'build/skin/skin-' + names + '.css';
+    var files = {};
+    files[targetPath] = lessFilePath;
+    grunt.config.set('less.skin.files', files);
+    grunt.task.run('less:skin');
+    grunt.config.set('watch.skin', {
+      files: [lessFilePath],
+      tasks: ['less:skin']
+    });
+    grunt.task.run('watch:skin');
+  });
 
 };

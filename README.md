@@ -66,3 +66,10 @@ dialog.modalTips('show tips and auto close', 3000);
 ###`.remove()`
 ###`.title([value])`
 ###`.content([value])`
+
+##develop
+###定制皮肤
+1. 在`src/less`目录添加一个less文件，命名为`skin-皮肤名.less`
+2. 运行`grunt skin:皮肤名`
+3. 在`build/skin`目录可以找到生成的皮肤样式文件，名称为`skin-皮肤名.css`
+4. 继续修改less文件，保存时grunt任务会自动生成一个新的css文件
