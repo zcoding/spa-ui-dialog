@@ -1,0 +1,26 @@
+{
+  "name": "spa-ui-dialog",
+  "version": "0.0.1",
+  "description": "dialog module",
+  "main": "Gruntfile.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zcoding/spa-ui-dialog.git"
+  },
+  "keywords": [
+    "dialog"
+  ],
+  "author": "zcoding",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/zcoding/spa-ui-dialog/issues"
+  },
+  "homepage": "https://github.com/zcoding/spa-ui-dialog",
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-contrib-compress": "^0.13.0",
+    "grunt-contrib-concat": "^0.5.1",
+    "grunt-contrib-uglify": "^0.9.1",
+    "grunt-contrib-watch": "^0.6.1"
+  }
+}
