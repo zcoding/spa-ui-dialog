@@ -1,0 +1,1 @@
+/* spa-ui-dialog by zcoding, MIT license, 2015-05-26 version: 0.1.1 */

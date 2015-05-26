@@ -23,6 +23,14 @@ module.exports = function(grunt) {
       }
     },
 
+    less: {
+      "build": {
+        files: {
+          'build/<%= pkg.name %>.css': 'src/less/spa-ui-dialog.less'
+        }
+      }
+    },
+
     concat: {
       options: {
         separator: '',
@@ -41,6 +49,10 @@ module.exports = function(grunt) {
       "build": {
         files: ['src/*.js'],
         tasks: ['concat:build', 'uglify:build']
+      },
+      "skin": {
+        files: ['src/**/*.less'],
+        tasks: ['less:build']
       }
     },
 
@@ -60,10 +72,12 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-concat');
-  grunt.loadNpmTasks('grunt-contrib-compress')
+  grunt.loadNpmTasks('grunt-contrib-compress');
+  grunt.loadNpmTasks('grunt-contrib-less');
 
   grunt.registerTask('default', ['concat:build', 'uglify:build', 'watch:build']);
-  grunt.registerTask('build', ['concat:build', 'uglify:build']);
-  grunt.registerTask('release', ['concat:build', 'uglify:build', 'compress:release']);
+  grunt.registerTask('skin', ['less:build', 'watch:skin']);
+  grunt.registerTask('build', ['concat:build', 'uglify:build', 'less:build']);
+  grunt.registerTask('release', ['concat:build', 'uglify:build', 'less:build', 'compress:release']);
 
 };
