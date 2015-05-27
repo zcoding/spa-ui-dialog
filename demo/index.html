@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>dialog</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="../build/spa-ui-dialog.css">
+</head>
+<body>
+  <div class="g-wrapper">
+    <div class="m-main">
+      <a href="javascript:;" class="u-button" id="trigger">trigger</a>
+    </div>
+  </div>
+  <script src="../build/spa-ui-dialog.js"></script>
+  <script>
+  document.getElementById('trigger').addEventListener('click', function(evt) {
+    var d = dialog({
+      title: 'Are you ok ?',
+      content: 'Just tell me.',
+      ok: function(evt) {
+        this.close().remove(function() {
+          dialog.tips("yeah, i'm fine");
+        });
+      }
+    });
+    return false;
+  });
+  </script>
+</body>
+</html>

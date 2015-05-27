@@ -1,0 +1,22 @@
+html, body, div {
+  margin: 0;
+  padding: 0;
+}
+
+.u-button {
+  display: inline-block;
+  margin: 0;
+  padding: 5px 15px;
+  text-decoration: none;
+  outline: none;
+}
+
+.u-button:link, .u-button:visited {
+  background: #EEEEEE;
+  color: #333333;
+}
+
+.u-button:hover {
+  background: #DDDDDD;
+  color: #333333;
+}
