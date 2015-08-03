@@ -9,6 +9,7 @@ html, body, div {
   padding: 5px 15px;
   text-decoration: none;
   outline: none;
+  border-radius: 5px;
 }
 
 .u-button:link, .u-button:visited {
@@ -19,4 +20,14 @@ html, body, div {
 .u-button:hover {
   background: #DDDDDD;
   color: #333333;
+}
+
+.g-wrapper {
+  width: 900px;
+  margin: 0 auto;
+}
+
+.m-main {
+  margin: 10px;
+  padding: 20px;
 }

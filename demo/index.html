@@ -13,19 +13,19 @@
     </div>
   </div>
   <script src="../build/spa-ui-dialog.js"></script>
-  <script>
-  document.getElementById('trigger').addEventListener('click', function(evt) {
-    var d = dialog({
-      title: 'Are you ok ?',
-      content: 'Just tell me.',
-      ok: function(evt) {
-        this.close().remove(function() {
-          dialog.tips("yeah, i'm fine");
-        });
-      }
-    });
-    return false;
-  });
-  </script>
+  <div class="ui-dialog">
+    <div class="ui-dialog-wrapper">
+      <div class="ui-dialog-header">
+        <div class="ui-dialog-title">title</div>
+      </div>
+      <div class="ui-dialog-body">
+        <div class="ui-dialog-content"></div>
+      </div>
+      <div class="ui-dialog-footer">
+        <a href="javascript:;" class="ui-dialog-button">OK</a>
+        <a href="javascript:;" class="ui-dialog-button">Cancel</a>
+      </div>
+    </div>
+  </div>
 </body>
 </html>

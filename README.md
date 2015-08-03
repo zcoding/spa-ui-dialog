@@ -5,11 +5,7 @@ dialog module for spa-ui project
 ```javascript
 var d = dialog({
   title: 'title here',
-  content: 'content(html or text) here',
-  buttons: {
-    ok: 'OK value'
-    cancel: 'Cancel value'
-  }
+  content: 'content(html or text) here'
 });
 d.show()
   .ok(function(evt, btnEle) {
@@ -21,14 +17,13 @@ d.show()
         self.close().remove();
       });
     return false; // don't close until ajax done
+  })
+  .on('open', function(evt) {
+    // when dialog opens
+  })
+  .on('close', function(evt) {
+    // when dialog closes
   });
-
-d.on('open', function(evt) {
-  // when dialog opens
-});
-d.on('close', function(evt) {
-  // when dialog closes
-});
 ```
 ##options
 + `title`
